@@ -53,6 +53,14 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def destroy_row_from_bucket
+    @category = Category.find(params.fetch("id_to_remove"))
+
+    @category.destroy
+
+    redirect_to("/buckets/#{@category.transation_id}", notice: "Category deleted successfully.")
+  end
+
   def destroy_row
     @category = Category.find(params.fetch("id_to_remove"))
 

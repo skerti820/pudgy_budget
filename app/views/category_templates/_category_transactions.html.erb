@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-header d-flex align-items-center justify-content-between">
+    Transactions
+
+    <a data-toggle="collapse" href="#category_transactions_new_form">
+      Add transaction
+    </a>
+  </div>
+
+  <ul class="list-group list-group-flush">
+    <% @category.transactions.each do |transaction| %>
+      <li class="list-group-item d-flex align-items-center justify-content-between">
+        <!-- Show link start -->
+        <a href="/transactions/<%= transaction.id %>">
+          <%= transaction.description %>
+        </a>
+        <!-- Show link end -->
+
+        <!-- Delete link start -->
+        <a href="/delete_transaction_from_category/<%= transaction.id %>">
+          Delete
+        </a>
+        <!-- Delete link end -->
+
+      </li>
+    <% end %>
+
+    <div class="card-footer">
+      <div class="collapse" id="category_transactions_new_form">
+        <!-- New associationcollection form start -->
+
+        <!-- New associationcollection form end -->
+      </div>
+    </div>
+
+  </ul>
+</div>

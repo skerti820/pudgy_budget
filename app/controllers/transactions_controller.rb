@@ -63,6 +63,30 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def destroy_row_from_user
+    @transaction = Transaction.find(params.fetch("id_to_remove"))
+
+    @transaction.destroy
+
+    redirect_to("/users/#{@transaction.user_id}", notice: "Transaction deleted successfully.")
+  end
+
+  def destroy_row_from_category
+    @transaction = Transaction.find(params.fetch("id_to_remove"))
+
+    @transaction.destroy
+
+    redirect_to("/categories/#{@transaction.category_id}", notice: "Transaction deleted successfully.")
+  end
+
+  def destroy_row_from_vendor
+    @transaction = Transaction.find(params.fetch("id_to_remove"))
+
+    @transaction.destroy
+
+    redirect_to("/vendors/#{@transaction.vendor_id}", notice: "Transaction deleted successfully.")
+  end
+
   def destroy_row
     @transaction = Transaction.find(params.fetch("id_to_remove"))
 

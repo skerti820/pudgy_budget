@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_budget/:id_to_remove", { :controller => "budgets", :action => "destroy_row" })
+  get("/delete_budget_from_category/:id_to_remove", { :controller => "budgets", :action => "destroy_row_from_category" })
 
   #------------------------------
 
@@ -56,6 +57,9 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_transaction/:id_to_remove", { :controller => "transactions", :action => "destroy_row" })
+  get("/delete_transaction_from_vendor/:id_to_remove", { :controller => "transactions", :action => "destroy_row_from_vendor" })
+  get("/delete_transaction_from_category/:id_to_remove", { :controller => "transactions", :action => "destroy_row_from_category" })
+  get("/delete_transaction_from_user/:id_to_remove", { :controller => "transactions", :action => "destroy_row_from_user" })
 
   #------------------------------
 
@@ -75,6 +79,7 @@ Rails.application.routes.draw do
 
   # DELETE
   get("/delete_category/:id_to_remove", { :controller => "categories", :action => "destroy_row" })
+  get("/delete_category_from_bucket/:id_to_remove", { :controller => "categories", :action => "destroy_row_from_bucket" })
 
   #------------------------------
 

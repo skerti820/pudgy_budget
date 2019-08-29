@@ -57,6 +57,14 @@ class BudgetsController < ApplicationController
     end
   end
 
+  def destroy_row_from_category
+    @budget = Budget.find(params.fetch("id_to_remove"))
+
+    @budget.destroy
+
+    redirect_to("/categories/#{@budget.category_id}", notice: "Budget deleted successfully.")
+  end
+
   def destroy_row
     @budget = Budget.find(params.fetch("id_to_remove"))
 
