@@ -27,7 +27,7 @@
     </label>
 
     <!-- Input for transation_id start -->
-    <input type="text" id="transation_id" name="transation_id" class="form-control" value="<%= @category.transation_id %>">
+    <%= select_tag(:transation_id, options_from_collection_for_select(Bucket.all, :id, :name, @category.transation_id), :class => "form-control") %>
     <!-- Input for transation_id end -->
   </div>
   <!-- Label and input for transation_id end -->
