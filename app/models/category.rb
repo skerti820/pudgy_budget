@@ -1,6 +1,9 @@
 class Category < ApplicationRecord
   # Direct associations
 
+  has_many   :budgets,
+             :dependent => :destroy
+
   has_many   :transactions,
              :dependent => :destroy
 

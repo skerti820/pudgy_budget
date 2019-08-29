@@ -4,6 +4,8 @@ RSpec.describe Budget, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:category) }
+
     end
 
     describe "InDirect Associations" do
