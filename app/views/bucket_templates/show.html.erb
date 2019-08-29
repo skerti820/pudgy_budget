@@ -1,0 +1,64 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Bucket #<%= @bucket.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/buckets" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link bucket start -->
+      <div class="col">
+        <a href="/buckets/<%= @bucket.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit bucket
+        </a>
+      </div>
+      <!-- Edit link bucket end -->
+
+      <!-- Delete link bucket start -->
+      <div class="col">
+        <a href="/delete_bucket/<%= @bucket.id %>" class="btn btn-block btn-outline-secondary">
+          Delete bucket
+        </a>
+      </div>
+      <!-- Delete link bucket end -->
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <!-- Display name start -->
+      <dd>
+        <%= @bucket.name %>
+      </dd>
+      <!-- Display name end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@bucket.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@bucket.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->
