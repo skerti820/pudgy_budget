@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "buckets#index"
   # Routes for the Budget resource:
 
   # CREATE
