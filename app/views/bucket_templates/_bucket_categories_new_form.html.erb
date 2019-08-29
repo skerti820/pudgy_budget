@@ -1,23 +1,14 @@
-<!-- Form category start -->
 <form action="/create_category_from_bucket" method="post">
-<!-- Form category end -->
 
-  <!-- Label and input for name start -->
   <div class="form-group">
     <label for="name">
       Name
     </label>
 
-    <!-- Input for name start -->
     <input type="text" id="name" name="name" class="form-control" value="<%= @category.name %>">
-    <!-- Input for name end -->
   </div>
-  <!-- Label and input for name end -->
 
-  <!-- Label and input for transation_id start -->
-  <!-- Input for transation_id start -->
   <input type="hidden" name="transation_id" value="<%= @bucket.id %>">
-  <!-- Input for transation_id end -->
 
   <button class="btn btn-block btn-outline-secondary">
     Create category

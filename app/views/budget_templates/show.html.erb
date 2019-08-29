@@ -11,37 +11,30 @@
         </a>
       </div>
 
-      <!-- Edit link budget start -->
       <div class="col">
         <a href="/budgets/<%= @budget.id %>/edit" class="btn btn-block btn-outline-secondary">
           Edit budget
         </a>
       </div>
-      <!-- Edit link budget end -->
 
-      <!-- Delete link budget start -->
       <div class="col">
         <a href="/delete_budget/<%= @budget.id %>" class="btn btn-block btn-outline-secondary">
           Delete budget
         </a>
       </div>
-      <!-- Delete link budget end -->
     </div>
 
     <dl>
       <dt>
         Description
       </dt>
-      <!-- Display description start -->
       <dd>
         <%= @budget.description %>
       </dd>
-      <!-- Display description end -->
 
       <dt>
         Category
       </dt>
-      <!-- Display category_id start -->
       <dd>
         <% if @budget.category.present? %>
           <a href="/categories/<%= @budget.category_id %>">
@@ -49,46 +42,35 @@
           </a>
         <% end %>
       </dd>
-      <!-- Display category_id end -->
 
       <dt>
         Deleted
       </dt>
-      <!-- Display deleted start -->
       <dd>
         <%= @budget.deleted %>
       </dd>
-      <!-- Display deleted end -->
 
       <dt>
         Month date
       </dt>
-      <!-- Display month_date start -->
       <dd>
         <%= @budget.month_date %>
       </dd>
-      <!-- Display month_date end -->
 
       <dt>
         Created at
       </dt>
-      <!-- Display created_at start -->
       <dd>
         <%= time_ago_in_words(@budget.created_at) %> ago
       </dd>
-      <!-- Display created_at end -->
 
       <dt>
         Updated at
       </dt>
-      <!-- Display updated_at start -->
       <dd>
         <%= time_ago_in_words(@budget.updated_at) %> ago
       </dd>
-      <!-- Display updated_at end -->
     </dl>
   </div>
 </div>
 
-<!-- Show Page Customization starts -->
-<!-- Show Page Customization end -->
