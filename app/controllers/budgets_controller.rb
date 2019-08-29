@@ -1,6 +1,6 @@
 class BudgetsController < ApplicationController
   def index
-    @budgets = Budget.all
+    @budgets = Budget.page(params[:page]).per(10)
 
     render("budget_templates/index.html.erb")
   end

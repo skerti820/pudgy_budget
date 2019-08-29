@@ -1,6 +1,6 @@
 class BucketsController < ApplicationController
   def index
-    @buckets = Bucket.all
+    @buckets = Bucket.page(params[:page]).per(10)
 
     render("bucket_templates/index.html.erb")
   end
