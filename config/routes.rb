@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Vendor resource:
+
+  # CREATE
+  get("/vendors/new", { :controller => "vendors", :action => "new_form" })
+  post("/create_vendor", { :controller => "vendors", :action => "create_row" })
+
+  # READ
+  get("/vendors", { :controller => "vendors", :action => "index" })
+  get("/vendors/:id_to_display", { :controller => "vendors", :action => "show" })
+
+  # UPDATE
+  get("/vendors/:prefill_with_id/edit", { :controller => "vendors", :action => "edit_form" })
+  post("/update_vendor/:id_to_modify", { :controller => "vendors", :action => "update_row" })
+
+  # DELETE
+  get("/delete_vendor/:id_to_remove", { :controller => "vendors", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Transaction resource:
 
   # CREATE

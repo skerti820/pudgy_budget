@@ -1,0 +1,73 @@
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <h1>
+      Vendor #<%= @vendor.id %> details
+    </h1>
+
+    <div class="row mb-3">
+      <div class="col">
+        <a href="/vendors" class="btn btn-block btn-outline-secondary">
+          Go back
+        </a>
+      </div>
+
+      <!-- Edit link vendor start -->
+      <div class="col">
+        <a href="/vendors/<%= @vendor.id %>/edit" class="btn btn-block btn-outline-secondary">
+          Edit vendor
+        </a>
+      </div>
+      <!-- Edit link vendor end -->
+
+      <!-- Delete link vendor start -->
+      <div class="col">
+        <a href="/delete_vendor/<%= @vendor.id %>" class="btn btn-block btn-outline-secondary">
+          Delete vendor
+        </a>
+      </div>
+      <!-- Delete link vendor end -->
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <!-- Display name start -->
+      <dd>
+        <%= @vendor.name %>
+      </dd>
+      <!-- Display name end -->
+
+      <dt>
+        Deleted
+      </dt>
+      <!-- Display deleted start -->
+      <dd>
+        <%= @vendor.deleted %>
+      </dd>
+      <!-- Display deleted end -->
+
+      <dt>
+        Created at
+      </dt>
+      <!-- Display created_at start -->
+      <dd>
+        <%= time_ago_in_words(@vendor.created_at) %> ago
+      </dd>
+      <!-- Display created_at end -->
+
+      <dt>
+        Updated at
+      </dt>
+      <!-- Display updated_at start -->
+      <dd>
+        <%= time_ago_in_words(@vendor.updated_at) %> ago
+      </dd>
+      <!-- Display updated_at end -->
+    </dl>
+  </div>
+</div>
+
+<!-- Show Page Customization starts -->
+
+<!-- Show Page Customization end -->

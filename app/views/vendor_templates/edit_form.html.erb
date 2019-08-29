@@ -1,0 +1,43 @@
+<h1>
+  Edit vendor #<%= @vendor.id %>
+</h1>
+
+<hr>
+
+<!-- Form vendor start -->
+<form action="/update_vendor/<%= @vendor.id %>" method="post">
+<!-- Form vendor end -->
+
+  <!-- Label and input for name start -->
+  <div class="form-group">
+    <label for="name">
+      Name
+    </label>
+
+    <!-- Input for name start -->
+    <input type="text" id="name" name="name" class="form-control" value="<%= @vendor.name %>">
+    <!-- Input for name end -->
+  </div>
+  <!-- Label and input for name end -->
+
+  <!-- Label and input for deleted start -->
+  <div class="form-check">
+    <input type="hidden" value="0" name="deleted">
+    <!-- Input for deleted start -->
+    <input id="deleted" class="form-check-input" name="deleted" type="checkbox" value="1" <%= "checked" if @vendor.deleted %>>
+    <!-- Input for deleted end -->
+    <label for="deleted" class="form-check-label">
+      Deleted
+    </label>
+  </div>
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update vendor
+  </button>
+</form>
+
+<hr>
+
+<a href="/vendors">
+  Go back
+</a>
