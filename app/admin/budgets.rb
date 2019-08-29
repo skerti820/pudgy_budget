@@ -1,4 +1,6 @@
 ActiveAdmin.register Budget do
+
+ permit_params :description, :category_id, :deleted, :month_date
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
