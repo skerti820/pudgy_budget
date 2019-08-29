@@ -1,0 +1,115 @@
+<!-- Validation failure messages -->
+<% if @transaction.present? %>
+  <% if @transaction.errors.any? %>
+    <% @transaction.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new transaction
+</h1>
+
+
+<hr>
+
+<!-- Form transaction start -->
+<form action="/create_transaction" method="post">
+<!-- Form transaction end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <label for="description">
+      Description
+    </label>
+
+    <!-- Input for description start -->
+    <input type="text" id="description" name="description" class="form-control" value="<%= @transaction.description %>">
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <!-- Label and input for vendor_id start -->
+  <div class="form-group">
+    <label for="vendor_id">
+      Vendor
+    </label>
+
+    <!-- Input for vendor_id start -->
+    <input type="text" id="vendor_id" name="vendor_id" class="form-control" value="<%= @transaction.vendor_id %>">
+    <!-- Input for vendor_id end -->
+  </div>
+  <!-- Label and input for vendor_id end -->
+
+  <!-- Label and input for category_id start -->
+  <div class="form-group">
+    <label for="category_id">
+      Category
+    </label>
+
+    <!-- Input for category_id start -->
+    <input type="text" id="category_id" name="category_id" class="form-control" value="<%= @transaction.category_id %>">
+    <!-- Input for category_id end -->
+  </div>
+  <!-- Label and input for category_id end -->
+
+  <!-- Label and input for deleted start -->
+  <div class="form-check">
+    <input type="hidden" value="0" name="deleted">
+    <!-- Input for deleted start -->
+    <input id="deleted" class="form-check-input" name="deleted" type="checkbox" <%= "checked" if @transaction.deleted %>>
+    <!-- Input for deleted end -->
+    <label for="deleted" class="form-check-label">
+      Deleted
+    </label>
+  </div>
+
+  <!-- Label and input for user_id start -->
+  <div class="form-group">
+    <label for="user_id">
+      User
+    </label>
+
+    <!-- Input for user_id start -->
+    <input type="text" id="user_id" name="user_id" class="form-control" value="<%= @transaction.user_id %>">
+    <!-- Input for user_id end -->
+  </div>
+  <!-- Label and input for user_id end -->
+
+  <!-- Label and input for purchase_date start -->
+  <div class="form-group">
+    <label for="purchase_date">
+      Purchase date
+    </label>
+
+    <!-- Input for purchase_date start -->
+    <input type="text" id="purchase_date" name="purchase_date" class="form-control" value="<%= @transaction.purchase_date %>">
+    <!-- Input for purchase_date end -->
+  </div>
+  <!-- Label and input for purchase_date end -->
+
+  <!-- Label and input for amount start -->
+  <div class="form-group">
+    <label for="amount">
+      Amount
+    </label>
+
+    <!-- Input for amount start -->
+    <input type="text" id="amount" name="amount" class="form-control" value="<%= @transaction.amount %>">
+    <!-- Input for amount end -->
+  </div>
+  <!-- Label and input for amount end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create transaction
+  </button>
+</form>
+
+<hr>
+
+<a href="/transactions">
+  Go back
+</a>
