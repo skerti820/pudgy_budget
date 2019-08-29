@@ -1,0 +1,79 @@
+<!-- Validation failure messages -->
+<% if @budget.present? %>
+  <% if @budget.errors.any? %>
+    <% @budget.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new budget
+</h1>
+
+
+<hr>
+
+<!-- Form budget start -->
+<form action="/create_budget" method="post">
+<!-- Form budget end -->
+
+  <!-- Label and input for description start -->
+  <div class="form-group">
+    <label for="description">
+      Description
+    </label>
+
+    <!-- Input for description start -->
+    <input type="text" id="description" name="description" class="form-control" value="<%= @budget.description %>">
+    <!-- Input for description end -->
+  </div>
+  <!-- Label and input for description end -->
+
+  <!-- Label and input for category_id start -->
+  <div class="form-group">
+    <label for="category_id">
+      Category
+    </label>
+
+    <!-- Input for category_id start -->
+    <input type="text" id="category_id" name="category_id" class="form-control" value="<%= @budget.category_id %>">
+    <!-- Input for category_id end -->
+  </div>
+  <!-- Label and input for category_id end -->
+
+  <!-- Label and input for deleted start -->
+  <div class="form-check">
+    <input type="hidden" value="0" name="deleted">
+    <!-- Input for deleted start -->
+    <input id="deleted" class="form-check-input" name="deleted" type="checkbox" <%= "checked" if @budget.deleted %>>
+    <!-- Input for deleted end -->
+    <label for="deleted" class="form-check-label">
+      Deleted
+    </label>
+  </div>
+
+  <!-- Label and input for month_date start -->
+  <div class="form-group">
+    <label for="month_date">
+      Month date
+    </label>
+
+    <!-- Input for month_date start -->
+    <input type="text" id="month_date" name="month_date" class="form-control" value="<%= @budget.month_date %>">
+    <!-- Input for month_date end -->
+  </div>
+  <!-- Label and input for month_date end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create budget
+  </button>
+</form>
+
+<hr>
+
+<a href="/budgets">
+  Go back
+</a>

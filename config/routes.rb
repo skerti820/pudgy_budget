@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Budget resource:
+
+  # CREATE
+  get("/budgets/new", { :controller => "budgets", :action => "new_form" })
+  post("/create_budget", { :controller => "budgets", :action => "create_row" })
+
+  # READ
+  get("/budgets", { :controller => "budgets", :action => "index" })
+  get("/budgets/:id_to_display", { :controller => "budgets", :action => "show" })
+
+  # UPDATE
+  get("/budgets/:prefill_with_id/edit", { :controller => "budgets", :action => "edit_form" })
+  post("/update_budget/:id_to_modify", { :controller => "budgets", :action => "update_row" })
+
+  # DELETE
+  get("/delete_budget/:id_to_remove", { :controller => "budgets", :action => "destroy_row" })
+
+  #------------------------------
+
   # Routes for the Vendor resource:
 
   # CREATE
