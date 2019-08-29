@@ -43,7 +43,11 @@
       </dt>
       <!-- Display transation_id start -->
       <dd>
-        <%= @category.transation_id %>
+        <% if @category.bucket.present? %>
+          <a href="/buckets/<%= @category.transation_id %>">
+            <%= @category.bucket.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display transation_id end -->
 

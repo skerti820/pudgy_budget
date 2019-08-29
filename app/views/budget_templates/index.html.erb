@@ -72,7 +72,11 @@
 
         <!-- Display budget.category_id start -->
         <td>
-          <%= budget.category.name %>
+          <% if budget.category.present? %>
+            <a href="/categories/<%= budget.category.id %>">
+              <%= budget.category.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display budget.category_id end -->
 

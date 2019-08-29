@@ -64,7 +64,11 @@
 
         <!-- Display category.transation_id start -->
         <td>
-          <%= category.bucket.name %>
+          <% if category.bucket.present? %>
+            <a href="/buckets/<%= category.bucket.id %>">
+              <%= category.bucket.name %>
+            </a>
+          <% end %>
         </td>
         <!-- Display category.transation_id end -->
 

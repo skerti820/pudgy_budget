@@ -43,7 +43,11 @@
       </dt>
       <!-- Display category_id start -->
       <dd>
-        <%= @budget.category_id %>
+        <% if @budget.category.present? %>
+          <a href="/categories/<%= @budget.category_id %>">
+            <%= @budget.category.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display category_id end -->
 

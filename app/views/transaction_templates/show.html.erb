@@ -43,7 +43,11 @@
       </dt>
       <!-- Display vendor_id start -->
       <dd>
-        <%= @transaction.vendor_id %>
+        <% if @transaction.vendor.present? %>
+          <a href="/vendors/<%= @transaction.vendor_id %>">
+            <%= @transaction.vendor.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display vendor_id end -->
 
@@ -52,7 +56,11 @@
       </dt>
       <!-- Display category_id start -->
       <dd>
-        <%= @transaction.category_id %>
+        <% if @transaction.category.present? %>
+          <a href="/categories/<%= @transaction.category_id %>">
+            <%= @transaction.category.name %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display category_id end -->
 
@@ -70,7 +78,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @transaction.user_id %>
+        <% if @transaction.user.present? %>
+          <a href="/users/<%= @transaction.user_id %>">
+            <%= @transaction.user.email %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 
