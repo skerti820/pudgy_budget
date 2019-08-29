@@ -34,6 +34,23 @@ class BudgetsController < ApplicationController
     end
   end
 
+  def create_row_from_category
+    @budget = Budget.new
+
+    @budget.description = params.fetch("description")
+    @budget.category_id = params.fetch("category_id")
+    @budget.deleted = params.fetch("deleted")
+    @budget.month_date = params.fetch("month_date")
+
+    if @budget.valid?
+      @budget.save
+
+      redirect_to("/categories/#{@budget.category_id}", notice: "Budget created successfully.")
+    else
+      render("budget_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @budget = Budget.find(params.fetch("prefill_with_id"))
 

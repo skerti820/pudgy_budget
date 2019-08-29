@@ -6,6 +6,8 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @budget = Budget.new
+    @transaction = Transaction.new
     @category = Category.find(params.fetch("id_to_display"))
 
     render("category_templates/show.html.erb")
@@ -27,6 +29,21 @@ class CategoriesController < ApplicationController
       @category.save
 
       redirect_back(:fallback_location => "/categories", :notice => "Category created successfully.")
+    else
+      render("category_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_bucket
+    @category = Category.new
+
+    @category.name = params.fetch("name")
+    @category.transation_id = params.fetch("transation_id")
+
+    if @category.valid?
+      @category.save
+
+      redirect_to("/buckets/#{@category.transation_id}", notice: "Category created successfully.")
     else
       render("category_templates/new_form_with_errors.html.erb")
     end

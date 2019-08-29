@@ -6,6 +6,7 @@ class VendorsController < ApplicationController
   end
 
   def show
+    @transaction = Transaction.new
     @vendor = Vendor.find(params.fetch("id_to_display"))
 
     render("vendor_templates/show.html.erb")

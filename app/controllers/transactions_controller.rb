@@ -37,6 +37,46 @@ class TransactionsController < ApplicationController
     end
   end
 
+  def create_row_from_category
+    @transaction = Transaction.new
+
+    @transaction.description = params.fetch("description")
+    @transaction.vendor_id = params.fetch("vendor_id")
+    @transaction.category_id = params.fetch("category_id")
+    @transaction.deleted = params.fetch("deleted")
+    @transaction.user_id = params.fetch("user_id")
+    @transaction.purchase_date = params.fetch("purchase_date")
+    @transaction.amount = params.fetch("amount")
+
+    if @transaction.valid?
+      @transaction.save
+
+      redirect_to("/categories/#{@transaction.category_id}", notice: "Transaction created successfully.")
+    else
+      render("transaction_templates/new_form_with_errors.html.erb")
+    end
+  end
+
+  def create_row_from_vendor
+    @transaction = Transaction.new
+
+    @transaction.description = params.fetch("description")
+    @transaction.vendor_id = params.fetch("vendor_id")
+    @transaction.category_id = params.fetch("category_id")
+    @transaction.deleted = params.fetch("deleted")
+    @transaction.user_id = params.fetch("user_id")
+    @transaction.purchase_date = params.fetch("purchase_date")
+    @transaction.amount = params.fetch("amount")
+
+    if @transaction.valid?
+      @transaction.save
+
+      redirect_to("/vendors/#{@transaction.vendor_id}", notice: "Transaction created successfully.")
+    else
+      render("transaction_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @transaction = Transaction.find(params.fetch("prefill_with_id"))
 

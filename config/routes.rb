@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   # CREATE
   get("/budgets/new", { :controller => "budgets", :action => "new_form" })
   post("/create_budget", { :controller => "budgets", :action => "create_row" })
+  post("/create_budget_from_category", { :controller => "budgets", :action => "create_row_from_category" })
 
   # READ
   get("/budgets", { :controller => "budgets", :action => "index" })
@@ -46,6 +47,8 @@ Rails.application.routes.draw do
   # CREATE
   get("/transactions/new", { :controller => "transactions", :action => "new_form" })
   post("/create_transaction", { :controller => "transactions", :action => "create_row" })
+  post("/create_transaction_from_vendor", { :controller => "transactions", :action => "create_row_from_vendor" })
+  post("/create_transaction_from_category", { :controller => "transactions", :action => "create_row_from_category" })
 
   # READ
   get("/transactions", { :controller => "transactions", :action => "index" })
@@ -68,6 +71,7 @@ Rails.application.routes.draw do
   # CREATE
   get("/categories/new", { :controller => "categories", :action => "new_form" })
   post("/create_category", { :controller => "categories", :action => "create_row" })
+  post("/create_category_from_bucket", { :controller => "categories", :action => "create_row_from_bucket" })
 
   # READ
   get("/categories", { :controller => "categories", :action => "index" })

@@ -6,6 +6,7 @@ class BucketsController < ApplicationController
   end
 
   def show
+    @category = Category.new
     @bucket = Bucket.find(params.fetch("id_to_display"))
 
     render("bucket_templates/show.html.erb")
