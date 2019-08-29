@@ -21,7 +21,7 @@
     </label>
 
     <!-- Input for vendor_id start -->
-    <input type="text" id="vendor_id" name="vendor_id" class="form-control" value="<%= @transaction.vendor_id %>">
+    <%= select_tag(:vendor_id, options_from_collection_for_select(Vendor.all, :id, :name, @transaction.vendor_id), :class => "form-control") %>
     <!-- Input for vendor_id end -->
   </div>
   <!-- Label and input for vendor_id end -->
