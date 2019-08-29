@@ -1,6 +1,7 @@
 class VendorsController < ApplicationController
   def index
-    @vendors = Vendor.page(params[:page]).per(10)
+    @q = Vendor.ransack(params[:q])
+    @vendors = @q.result(:distinct => true).includes(:transactions).page(params[:page]).per(10)
 
     render("vendor_templates/index.html.erb")
   end

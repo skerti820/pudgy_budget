@@ -1,6 +1,7 @@
 class BudgetsController < ApplicationController
   def index
-    @budgets = Budget.page(params[:page]).per(10)
+    @q = Budget.ransack(params[:q])
+    @budgets = @q.result(:distinct => true).includes(:category).page(params[:page]).per(10)
 
     render("budget_templates/index.html.erb")
   end
